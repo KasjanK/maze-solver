@@ -4,10 +4,15 @@ def main():
     print("main function started")
     win = Window(800, 600)
     cell = Cell(win)
+    cell2 = Cell(win)
     cell.draw(30, 30, 60, 60)
-    cell.draw(60, 30, 90, 60)
+    cell2.draw(500, 400, 530, 430)
+    cell.draw_move(cell2)
 
-    #win.draw_line(cell, "black")
+    #line = Line(Point(45, 45), Point(151.5, 90))
+
+
+    #win.draw_line(line, "red")
     win.wait_for_close()
 
 if __name__ == "__main__":
