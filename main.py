@@ -1,4 +1,5 @@
-from window import Window, Line, Point, Cell
+from window import Window
+from cell import Cell
 
 def main():
     print("main function started")
@@ -9,10 +10,6 @@ def main():
     cell2.draw(500, 400, 530, 430)
     cell.draw_move(cell2)
 
-    #line = Line(Point(45, 45), Point(151.5, 90))
-
-
-    #win.draw_line(line, "red")
     win.wait_for_close()
 
 if __name__ == "__main__":
