@@ -46,7 +46,7 @@ class Line():
         canvas.create_line(x1, y1, x2, y2, fill=fill_color, width=2)
 
 class Cell():
-    def __init__(self, window):
+    def __init__(self, window=None):
         self.has_left_wall = True
         self.has_right_wall = True
         self.has_top_wall = True
@@ -58,6 +58,9 @@ class Cell():
         self.__win = window
 
     def draw(self, x1, y1, x2, y2):
+        if self.__win is None:
+            return 
+        
         self.__x1 = x1
         self.__x2 = x2
         self.__y1 = y1
@@ -83,10 +86,13 @@ class Cell():
         if undo:
             fill_color = "gray"
 
+        if self.__win is None:
+            return
+
         self.__win.draw_line(Line(Point(self_x_center, self_y_center), Point(to_cell_x_center, to_cell_y_center)), fill_color)
 
 class Maze():
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win=None):
         self.__x1 = x1
         self.__y1 = y1
         self.__num_rows = num_rows
@@ -112,6 +118,8 @@ class Maze():
         cell = self.__cells[i][j]
         x_top_left = self.__x1 + self.__cell_size_x * i
         y_top_left = self.__y1 + self.__cell_size_y * j
+        if self.__win is None:
+            return
         cell.draw(x_top_left, y_top_left, x_top_left + self.__cell_size_x, y_top_left + self.__cell_size_y)
         self.animate()
 
