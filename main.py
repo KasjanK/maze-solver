@@ -1,4 +1,5 @@
-from window import Window, Maze
+from window import Window
+from maze import Maze
 
 def main():
     print("main function started")
