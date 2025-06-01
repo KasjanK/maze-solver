@@ -10,7 +10,7 @@ def main():
     # cell2.draw(500, 400, 530, 430)
     # cell.draw_move(cell2)
 
-    maze = Maze(50, 50, 20, 20, 30, 30, win)
+    maze = Maze(50, 50, 5, 5, 30, 30, win)
 
     win.wait_for_close()
 
